@@ -3,390 +3,229 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chaghil Oussama — Ingénieur logiciel</title>
-<meta name="description" content="Portfolio de Chaghil Oussama — ingénieur logiciel étudiant à ESTIAM. Backend, cloud, DevSecOps et applications mobiles.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230b0f10'/%3E%3Ccircle cx='30' cy='70' r='7' fill='%23e8a33d'/%3E%3Ccircle cx='70' cy='30' r='7' fill='%23e8a33d'/%3E%3Ccircle cx='70' cy='70' r='7' fill='%23e8a33d'/%3E%3Cpath d='M30 70L70 30M30 70L70 70' stroke='%23e8a33d' stroke-width='4'/%3E%3C/svg%3E">
+<title>Chaghil Oussama — Ingénieur Fullstack</title>
+<meta name="description" content="Portfolio de Chaghil Oussama, ingénieur fullstack étudiant à ESTIAM — React, Next.js, Node/Express, bases de données relationnelles et NoSQL.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%2317140f'/%3E%3Cpath d='M22 66h56' stroke='%23f2c14e' stroke-width='10' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
   :root{
-    --bg:#0b0f10; --bg-raised:#12181a; --ink:#eef0ee; --ink-soft:#98a29e;
-    --line:rgba(238,240,238,.14); --accent:#e8a33d; --accent-soft:rgba(232,163,61,.12);
-    --font-mono: ui-monospace, 'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+    --paper:#ffffff; --paper-alt:#faf9f6; --ink:#18150f; --ink-soft:#6c665a;
+    --line:#e6e2d8; --accent:#f0bd48; --accent-ink:#372900;
+    --font-display: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
     --font-body: -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
   }
-  @media (prefers-color-scheme: light){
+  @media (prefers-color-scheme: dark){
     :root{
-      --bg:#f2f4f1; --bg-raised:#ffffff; --ink:#131a1b; --ink-soft:#525d59;
-      --line:rgba(19,26,27,.14); --accent:#a8641a; --accent-soft:rgba(168,100,26,.10);
+      --paper:#15130e; --paper-alt:#1b1812; --ink:#f1ede2; --ink-soft:#a39c8b;
+      --line:#2c281f; --accent:#f0bd48; --accent-ink:#241a00;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#0b0f10; --bg-raised:#12181a; --ink:#eef0ee; --ink-soft:#98a29e;
-    --line:rgba(238,240,238,.14); --accent:#e8a33d; --accent-soft:rgba(232,163,61,.12);
+    --paper:#15130e; --paper-alt:#1b1812; --ink:#f1ede2; --ink-soft:#a39c8b;
+    --line:#2c281f; --accent:#f0bd48; --accent-ink:#241a00;
   }
   :root[data-theme="light"]{
-    --bg:#f2f4f1; --bg-raised:#ffffff; --ink:#131a1b; --ink-soft:#525d59;
-    --line:rgba(19,26,27,.14); --accent:#a8641a; --accent-soft:rgba(168,100,26,.10);
+    --paper:#ffffff; --paper-alt:#faf9f6; --ink:#18150f; --ink-soft:#6c665a;
+    --line:#e6e2d8; --accent:#f0bd48; --accent-ink:#372900;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
   body{
-    margin:0; background:var(--bg); color:var(--ink); font-family:var(--font-body);
-    line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased;
+    margin:0; background:var(--paper); color:var(--ink); font-family:var(--font-body);
+    line-height:1.6; font-size:16.5px; -webkit-font-smoothing:antialiased;
   }
-  a{color:inherit;}
-  ::selection{background:var(--accent-soft);}
+  a{color:var(--ink); text-decoration-color:var(--line);}
+  ::selection{background:var(--accent); color:var(--accent-ink);}
 
-  .wrap{max-width:880px; margin:0 auto; padding:0 28px;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 26px;}
 
-  /* ---------------- hero ---------------- */
-  .hero{position:relative; min-height:100svh; display:flex; align-items:center; overflow:hidden; border-bottom:1px solid var(--line);}
-  #netcanvas{position:absolute; inset:0; width:100%; height:100%; opacity:.55;}
-  .hero-inner{position:relative; z-index:1; width:100%;}
-  .eyebrow{font-family:var(--font-mono); font-size:.82rem; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:0 0 22px; display:flex; align-items:center; gap:10px;}
-  .eyebrow::before{content:''; width:22px; height:1px; background:var(--accent);}
+  mark{
+    background:var(--accent); color:var(--accent-ink); padding:0 5px;
+    border-radius:2px; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+    font-style:normal;
+  }
+
+  /* ---------------- header / intro ---------------- */
+  header.intro{padding:88px 0 64px;}
+  .kicker{font-family:var(--font-mono); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 26px;}
   h1.name{
-    font-family:var(--font-mono); font-weight:700; font-size:clamp(2.6rem,8vw,4.6rem);
-    line-height:1.02; margin:0 0 20px; letter-spacing:-.01em; text-wrap:balance;
+    font-family:var(--font-display); font-weight:400; font-size:clamp(2.3rem,7vw,3.3rem);
+    line-height:1.08; margin:0 0 22px; text-wrap:balance;
   }
-  .role{font-size:1.2rem; color:var(--ink-soft); max-width:56ch; margin:0 0 30px;}
-  .hero-links{display:flex; flex-wrap:wrap; gap:12px;}
-  .btn{
-    font-family:var(--font-mono); font-size:.88rem; padding:11px 18px; border:1px solid var(--line);
-    border-radius:2px; text-decoration:none; color:var(--ink); transition:border-color .15s, color .15s, background .15s;
-  }
-  .btn:hover{border-color:var(--accent); color:var(--accent);}
-  .btn.primary{background:var(--accent); border-color:var(--accent); color:#161009;}
-  .btn.primary:hover{color:#161009; opacity:.88;}
+  p.lead{font-size:1.18rem; margin:0 0 18px; max-width:52ch;}
+  p.sub{color:var(--ink-soft); max-width:56ch; margin:0 0 30px;}
+  .links{display:flex; flex-wrap:wrap; gap:18px; font-family:var(--font-mono); font-size:.88rem;}
+  .links a{text-decoration:underline; text-underline-offset:3px;}
+  .links a:hover{color:var(--accent-ink); text-decoration-color:var(--accent); background:var(--accent);}
+
+  a:focus-visible{outline:2px solid var(--ink); outline-offset:3px; background:var(--accent); color:var(--accent-ink);}
 
   /* ---------------- sections ---------------- */
-  section.block{padding:88px 0; border-bottom:1px solid var(--line);}
-  .section-head{display:flex; align-items:baseline; gap:16px; margin-bottom:40px;}
-  .section-num{font-family:var(--font-mono); color:var(--accent); font-size:.9rem;}
-  h2{font-size:1.6rem; margin:0; font-weight:700;}
-  .lede{color:var(--ink-soft); max-width:64ch; margin:-24px 0 40px;}
-
-  /* ---------------- skills ---------------- */
-  .skillgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line);}
-  .skillcard{background:var(--bg); padding:24px;}
-  .skillcard h3{font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; font-family:var(--font-mono); color:var(--ink-soft); margin:0 0 14px; font-weight:600;}
-  .chiprow{display:flex; flex-wrap:wrap; gap:8px;}
-  .chip{font-family:var(--font-mono); font-size:.8rem; padding:4px 10px; border:1px solid var(--line); border-radius:2px; color:var(--ink);}
-
-  /* ---------------- projects ---------------- */
-  .projects{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line);}
-  .project{background:var(--bg); padding:32px; position:relative;}
-  .project::before, .project::after{content:''; position:absolute; width:14px; height:14px; border-color:var(--accent); opacity:.7;}
-  .project::before{top:10px; left:10px; border-top:2px solid var(--accent); border-left:2px solid var(--accent);}
-  .project::after{bottom:10px; right:10px; border-bottom:2px solid var(--accent); border-right:2px solid var(--accent);}
-  .project-top{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:10px;}
-  .project h3{font-size:1.2rem; margin:0; font-weight:700;}
-  .project .tag{font-family:var(--font-mono); font-size:.74rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); border:1px solid var(--line); padding:3px 9px; border-radius:2px; white-space:nowrap;}
-  .project p{color:var(--ink-soft); max-width:66ch; margin:0 0 16px;}
-  .project .chiprow{margin-bottom:14px;}
-  .project a.plink{font-family:var(--font-mono); font-size:.86rem; color:var(--accent); text-decoration:none; border-bottom:1px solid transparent;}
-  .project a.plink:hover{border-bottom-color:var(--accent);}
-  .project .private{font-family:var(--font-mono); font-size:.86rem; color:var(--ink-soft); font-style:italic;}
-
-  .more-projects{margin-top:26px; display:flex; flex-wrap:wrap; gap:10px 22px; font-family:var(--font-mono); font-size:.9rem;}
-  .more-projects a{text-decoration:none; color:var(--ink-soft); border-bottom:1px dotted var(--line);}
-  .more-projects a:hover{color:var(--accent); border-color:var(--accent);}
-
-  /* ---------------- about ---------------- */
-  .about p{max-width:68ch; color:var(--ink-soft);}
-  .about strong{color:var(--ink); font-weight:600;}
+  section{padding:56px 0; border-top:1px solid var(--line);}
+  h2.h{
+    font-family:var(--font-display); font-style:italic; font-weight:400; font-size:1.5rem;
+    margin:0 0 30px;
+  }
+  p{margin:0 0 14px; max-width:64ch;}
 
   /* ---------------- experience ---------------- */
-  .exp-list{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line);}
-  .exp-item{background:var(--bg); padding:26px 28px;}
-  .exp-top{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:6px;}
-  .exp-role{font-size:1.05rem; font-weight:700;}
-  .exp-dates{font-family:var(--font-mono); font-size:.8rem; color:var(--accent); white-space:nowrap;}
-  .exp-company{color:var(--ink-soft); font-size:.92rem; margin-bottom:10px;}
-  .exp-item p{color:var(--ink-soft); max-width:66ch; margin:0;}
-
-  .project.soon{opacity:.82;}
-  .project .tag.soon{color:var(--accent); border-color:var(--accent);}
-
-  /* ---------------- contact / footer ---------------- */
-  footer{padding:70px 0 50px;}
-  footer h2{margin-bottom:16px;}
-  .contact-row{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:36px;}
-  .foot-meta{color:var(--ink-soft); font-size:.86rem; font-family:var(--font-mono); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; border-top:1px solid var(--line); padding-top:22px;}
-
-  @media (max-width:600px){
-    section.block{padding:60px 0;}
-    .wrap{padding:0 20px;}
+  .exp-item{display:grid; grid-template-columns:120px 1fr; gap:18px; padding:20px 0; border-top:1px solid var(--line);}
+  .exp-item:first-child{border-top:none; padding-top:0;}
+  .exp-dates{font-family:var(--font-mono); font-size:.78rem; color:var(--ink-soft); padding-top:3px;}
+  .exp-role{font-weight:700; margin:0 0 2px;}
+  .exp-company{color:var(--ink-soft); font-size:.92rem; margin-bottom:8px; font-style:italic;}
+  .exp-item p{color:var(--ink-soft); margin:0; font-size:.96rem;}
+  @media (max-width:520px){
+    .exp-item{grid-template-columns:1fr;}
+    .exp-dates{padding-top:0;}
   }
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
+
+  /* ---------------- skills ---------------- */
+  .skill-line{margin:0 0 16px; max-width:66ch;}
+  .skill-line b{font-weight:700;}
+  .skill-line span{color:var(--ink-soft);}
+
+  /* ---------------- projects ---------------- */
+  .project{padding:26px 0; border-top:1px solid var(--line);}
+  .project:first-child{border-top:none; padding-top:0;}
+  .project-top{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:6px;}
+  .project h3{font-family:var(--font-display); font-size:1.2rem; font-weight:700; margin:0;}
+  .project .status{font-family:var(--font-mono); font-size:.74rem; color:var(--ink-soft);}
+  .project .status.soon{color:var(--accent-ink); background:var(--accent); padding:1px 7px; border-radius:2px;}
+  .project p{color:var(--ink-soft); margin:0 0 10px; font-size:.98rem;}
+  .project .meta{font-family:var(--font-mono); font-size:.82rem; color:var(--ink-soft);}
+  .project .meta a{color:var(--ink); text-decoration:underline; text-underline-offset:2px;}
+  .project .meta a:hover{color:var(--accent-ink); background:var(--accent);}
+
+  .more-projects{margin-top:22px; font-family:var(--font-mono); font-size:.88rem; color:var(--ink-soft);}
+  .more-projects a{color:var(--ink); text-decoration:underline; text-underline-offset:2px;}
+
+  /* ---------------- footer ---------------- */
+  footer{padding:56px 0 80px; border-top:1px solid var(--line);}
+  footer .sign{font-family:var(--font-display); font-style:italic; color:var(--ink-soft); margin-top:26px; font-size:.96rem;}
+
+  @media (max-width:520px){
+    header.intro{padding:56px 0 44px;}
+    section, footer{padding:40px 0;}
   }
 </style>
 </head>
 <body>
 
-  <section class="hero">
-    <canvas id="netcanvas"></canvas>
-    <div class="wrap hero-inner">
-      <p class="eyebrow">Ingénierie logicielle</p>
-      <h1 class="name">Chaghil Oussama</h1>
-      <p class="role">Développeur Fullstack &amp; IA, étudiant ingénieur à ESTIAM — deux stages de 6 mois à concevoir des systèmes complets, du backend et des données jusqu'au cloud, à la sécurité et au mobile. À l'aise pour passer d'une base de données graphe à un pipeline CI/CD sécurisé ou une app React Native.</p>
-      <div class="hero-links">
-        <a class="btn primary" href="mailto:oussamachaghil214@gmail.com">Écrire un email</a>
-        <a class="btn" href="https://github.com/oussamaa29" target="_blank" rel="noopener">GitHub ↗</a>
+  <div class="wrap">
+
+    <header class="intro">
+      <p class="kicker">Portfolio — Chaghil Oussama</p>
+      <h1 class="name">Salut, je suis Oussama.</h1>
+      <p class="lead">Je suis <mark>ingénieur fullstack</mark>, étudiant à ESTIAM.</p>
+      <p class="sub">À l'aise avec React, Next.js, Node/Express et TypeScript côté code, aussi bien qu'avec une base relationnelle ou du NoSQL côté données. Deux stages de 6 mois plus tard, ce qui me plaît vraiment, c'est comprendre un problème jusqu'au bout avant d'écrire la moindre ligne — pas empiler des couches pour la forme.</p>
+      <p class="sub">Actuellement <mark>ouvert à de nouvelles opportunités</mark> en développement fullstack.</p>
+      <div class="links">
+        <a href="mailto:oussamachaghil214@gmail.com">oussamachaghil214@gmail.com</a>
+        <a href="https://github.com/oussamaa29" target="_blank" rel="noopener">github.com/oussamaa29</a>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="block about" id="about">
-    <div class="wrap">
-      <div class="section-head"><span class="section-num">00</span><h2>À propos</h2></div>
-      <p>Étudiant en ingénierie logicielle à <strong>ESTIAM</strong>, je construis des projets qui traversent toute la chaîne technique : modélisation de données, API backend, infrastructure cloud, sécurisation des pipelines de livraison, et interfaces — web comme mobile. Ce qui m'intéresse en particulier : les systèmes où plusieurs briques (données, sécurité, IA) doivent s'articuler proprement plutôt que les projets isolés d'une seule techno.</p>
-    </div>
-  </section>
+    <section id="experience">
+      <h2 class="h">Expérience</h2>
 
-  <section class="block" id="experience">
-    <div class="wrap">
-      <div class="section-head"><span class="section-num">01</span><h2>Expérience</h2></div>
-      <div class="exp-list">
-        <div class="exp-item">
-          <div class="exp-top">
-            <span class="exp-role">Développeur Fullstack &amp; IA — Stage</span>
-            <span class="exp-dates">Janvier – Juillet 2026</span>
-          </div>
-          <div class="exp-company">HepTa Advisory Labs</div>
-          <p>Conception et développement de bout en bout d'une plateforme de gestion d'architecture d'entreprise : modélisation en base de données graphe, API backend, interface de cartographie visuelle interactive, et intégration d'un assistant IA local pour accélérer la structuration des données métier.</p>
-        </div>
-        <div class="exp-item">
-          <div class="exp-top">
-            <span class="exp-role">Développeur Fullstack &amp; IA — Stage</span>
-            <span class="exp-dates">Janvier – Juillet 2025</span>
-          </div>
-          <div class="exp-company">HepTa Advisory Labs</div>
-          <p>Premier stage au sein du cabinet — contribution au développement d'outils internes web et premières intégrations d'IA appliquée, avant la montée en responsabilité sur la plateforme de gestion d'architecture d'entreprise l'année suivante.</p>
+      <div class="exp-item">
+        <div class="exp-dates">Jan – Juil 2026</div>
+        <div>
+          <p class="exp-role">Ingénieur Fullstack — Stage</p>
+          <p class="exp-company">HepTa Advisory Labs</p>
+          <p>Conception et développement de bout en bout d'une plateforme de gestion d'architecture d'entreprise : base de données graphe, API, cartographie visuelle interactive, et assistant IA local pour accélérer la structuration des données métier.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="block" id="skills">
-    <div class="wrap">
-      <div class="section-head"><span class="section-num">02</span><h2>Compétences</h2></div>
-      <div class="skillgrid">
-        <div class="skillcard">
-          <h3>Backend &amp; données</h3>
-          <div class="chiprow">
-            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Flask</span>
-            <span class="chip">C# / .NET</span><span class="chip">Neo4j / Cypher</span><span class="chip">DynamoDB</span>
-            <span class="chip">API REST</span>
-          </div>
-        </div>
-        <div class="skillcard">
-          <h3>Cloud &amp; DevSecOps</h3>
-          <div class="chiprow">
-            <span class="chip">AWS Lambda</span><span class="chip">API Gateway</span><span class="chip">Cognito</span>
-            <span class="chip">S3</span><span class="chip">Docker</span><span class="chip">Kubernetes</span>
-            <span class="chip">GitHub Actions</span><span class="chip">Trivy</span><span class="chip">Conftest / OPA</span>
-          </div>
-        </div>
-        <div class="skillcard">
-          <h3>Frontend &amp; mobile</h3>
-          <div class="chiprow">
-            <span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">React Native</span>
-            <span class="chip">Expo</span><span class="chip">SPA Vanilla JS</span>
-          </div>
-        </div>
-        <div class="skillcard">
-          <h3>IA appliquée</h3>
-          <div class="chiprow">
-            <span class="chip">LLM local (Ollama)</span><span class="chip">Prompt engineering</span>
-            <span class="chip">Sorties JSON déterministes</span>
-          </div>
+      <div class="exp-item">
+        <div class="exp-dates">Jan – Juil 2025</div>
+        <div>
+          <p class="exp-role">Ingénieur Fullstack — Stage</p>
+          <p class="exp-company">HepTa Advisory Labs</p>
+          <p>Premier stage au sein du cabinet — contribution au développement d'outils internes web et premières intégrations d'IA appliquée, avant la montée en responsabilité l'année suivante.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="block" id="projects">
-    <div class="wrap">
-      <div class="section-head"><span class="section-num">03</span><h2>Projets</h2></div>
-      <p class="lede">Une sélection de projets académiques, professionnels et personnels, du plus complet au plus ciblé.</p>
-      <div class="projects">
+    <section id="projects">
+      <h2 class="h">Projets</h2>
 
-        <article class="project">
-          <div class="project-top">
-            <h3>Plateforme de gestion d'architecture d'entreprise</h3>
-            <span class="tag">Projet 6 mois — stage</span>
-          </div>
-          <p>Plateforme web de Business Capability Management : cartographie visuelle interactive des capacités métier, base de données graphe pour modéliser hiérarchies et relations, et assistant IA local pour accélérer la structuration des données. Développée en autonomie de bout en bout — modèle de données, API, frontend, intégration IA.</p>
-          <div class="chiprow">
-            <span class="chip">FastAPI</span><span class="chip">Neo4j</span><span class="chip">Vanilla JS</span><span class="chip">Ollama</span>
-          </div>
-          <span class="private">Dépôt privé — projet réalisé en entreprise</span>
-        </article>
-
-        <article class="project">
-          <div class="project-top">
-            <h3>Job Tracker IA</h3>
-            <span class="tag">Personnel</span>
-          </div>
-          <p>Suivi de candidatures en board Kanban avec matching IA : comparaison automatique entre un CV et une offre d'emploi, score d'adéquation, compétences manquantes et suggestions concrètes, via un LLM local appelé de façon déterministe.</p>
-          <div class="chiprow">
-            <span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">SQLite</span><span class="chip">Ollama</span>
-          </div>
-          <a class="plink" href="https://github.com/oussamaa29/job-tracker-ai" target="_blank" rel="noopener">Voir le dépôt ↗</a>
-        </article>
-
-        <article class="project soon">
-          <div class="project-top">
-            <h3>Auditeur d'accessibilité web (RGAA)</h3>
-            <span class="tag soon">À venir</span>
-          </div>
-          <p>Scan automatique d'une URL pour détecter les problèmes d'accessibilité (contraste, alternatives textuelles, navigation clavier, ARIA), notation du site et génération d'un rapport exportable — pour répondre aux obligations du RGAA.</p>
-          <div class="chiprow">
-            <span class="chip">FastAPI</span><span class="chip">Playwright</span><span class="chip">Postgres</span><span class="chip">React</span>
-          </div>
-          <span class="private">En cours de développement</span>
-        </article>
-
-        <article class="project soon">
-          <div class="project-top">
-            <h3>Devis &amp; factures pour indépendants</h3>
-            <span class="tag soon">À venir</span>
-          </div>
-          <p>Application de facturation pour auto-entrepreneurs et artisans : devis, factures conformes, suivi des paiements et relances automatiques des impayés — pensée comme un vrai produit multi-utilisateurs.</p>
-          <div class="chiprow">
-            <span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">Stripe</span><span class="chip">PDF</span>
-          </div>
-          <span class="private">En cours de développement</span>
-        </article>
-
-        <article class="project">
-          <div class="project-top">
-            <h3>Pipeline DevSecOps</h3>
-            <span class="tag">Sécurité / CI-CD</span>
-          </div>
-          <p>Pipeline CI/CD complet intégrant la sécurité à chaque étape : scan de vulnérabilités des dépendances et de l'image Docker (Trivy), vérification des manifestes Kubernetes par politiques as-code (Conftest / Rego), et build automatisé via GitHub Actions autour d'une API REST Flask.</p>
-          <div class="chiprow">
-            <span class="chip">GitHub Actions</span><span class="chip">Docker</span><span class="chip">Trivy</span><span class="chip">Conftest</span><span class="chip">Kubernetes</span><span class="chip">Flask</span>
-          </div>
-          <a class="plink" href="https://github.com/oussamaa29/devsecops" target="_blank" rel="noopener">Voir le dépôt ↗</a>
-        </article>
-
-        <article class="project">
-          <div class="project-top">
-            <h3>Expense Report Tracker</h3>
-            <span class="tag">Cloud AWS</span>
-          </div>
-          <p>Application de gestion de notes de frais entièrement serverless : authentification par groupes (employés / finance), upload de reçus vers S3 via URLs pré-signées, et persistance sur DynamoDB, exposée via API Gateway et consommée par un client desktop .NET MAUI.</p>
-          <div class="chiprow">
-            <span class="chip">.NET MAUI</span><span class="chip">AWS Lambda</span><span class="chip">API Gateway</span><span class="chip">Cognito</span><span class="chip">DynamoDB</span><span class="chip">S3</span>
-          </div>
-          <a class="plink" href="https://github.com/oussamaa29/expense-tracker-aws" target="_blank" rel="noopener">Voir le dépôt ↗</a>
-        </article>
-
-        <article class="project">
-          <div class="project-top">
-            <h3>TravelMate</h3>
-            <span class="tag">Mobile</span>
-          </div>
-          <p>Application mobile cross-platform de gestion de voyages : planification d'activités, ajout de photos et suivi de statistiques de voyage, développée avec React Native et Expo.</p>
-          <div class="chiprow">
-            <span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">TypeScript</span>
-          </div>
-          <a class="plink" href="https://github.com/oussamaa29/TravelApp" target="_blank" rel="noopener">Voir le dépôt ↗</a>
-        </article>
-
+      <div class="project">
+        <div class="project-top">
+          <h3>Plateforme de gestion d'architecture d'entreprise</h3>
+        </div>
+        <p>Business Capability Management : cartographie visuelle interactive, base de données graphe pour les hiérarchies et relations, assistant IA local pour accélérer la structuration des données. Développée en autonomie de bout en bout.</p>
+        <div class="meta">FastAPI · Neo4j · Vanilla JS · Ollama — dépôt privé, projet réalisé en entreprise</div>
       </div>
 
-      <div class="more-projects">
-        <a href="https://github.com/oussamaa29/iphone-calculator" target="_blank" rel="noopener">iPhone Calculator ↗</a>
-        <a href="https://github.com/oussamaa29/todolist" target="_blank" rel="noopener">Todo List ↗</a>
-        <a href="https://github.com/oussamaa29?tab=repositories" target="_blank" rel="noopener">Tous les dépôts ↗</a>
+      <div class="project">
+        <div class="project-top">
+          <h3>Job Tracker IA</h3>
+        </div>
+        <p>Suivi de candidatures en Kanban avec matching IA : comparaison entre un CV et une offre, score d'adéquation, compétences manquantes et suggestions, via un LLM local appelé de façon déterministe.</p>
+        <div class="meta">FastAPI · React · TypeScript · SQLite · Ollama — <a href="https://github.com/oussamaa29/job-tracker-ai" target="_blank" rel="noopener">voir le dépôt ↗</a></div>
       </div>
-    </div>
-  </section>
 
-  <footer>
-    <div class="wrap">
-      <div class="section-head"><span class="section-num">04</span><h2>Contact</h2></div>
-      <div class="contact-row">
-        <a class="btn primary" href="mailto:oussamachaghil214@gmail.com">oussamachaghil214@gmail.com</a>
-        <a class="btn" href="https://github.com/oussamaa29" target="_blank" rel="noopener">github.com/oussamaa29</a>
+      <div class="project">
+        <div class="project-top">
+          <h3>Pipeline DevSecOps</h3>
+        </div>
+        <p>CI/CD avec sécurité intégrée à chaque étape : scan de vulnérabilités (Trivy) sur les dépendances et l'image Docker, vérification des manifestes Kubernetes par politiques as-code (Conftest/Rego), build automatisé via GitHub Actions.</p>
+        <div class="meta">GitHub Actions · Docker · Trivy · Conftest · Kubernetes · Flask — <a href="https://github.com/oussamaa29/devsecops" target="_blank" rel="noopener">voir le dépôt ↗</a></div>
       </div>
-      <div class="foot-meta">
-        <span>Chaghil Oussama — ESTIAM</span>
-        <span>Site construit sans framework, sans build step</span>
+
+      <div class="project">
+        <div class="project-top">
+          <h3>Expense Report Tracker</h3>
+        </div>
+        <p>Notes de frais serverless : auth par groupes (employés/finance), upload de reçus vers S3 via URLs pré-signées, persistance DynamoDB, exposée via API Gateway et consommée par un client desktop .NET MAUI.</p>
+        <div class="meta">.NET MAUI · AWS Lambda · API Gateway · Cognito · DynamoDB · S3 — <a href="https://github.com/oussamaa29/expense-tracker-aws" target="_blank" rel="noopener">voir le dépôt ↗</a></div>
       </div>
-    </div>
-  </footer>
 
-<script>
-  (function(){
-    var canvas = document.getElementById('netcanvas');
-    var ctx = canvas.getContext('2d');
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var W, H, nodes = [];
-    var N = 46;
+      <div class="project">
+        <div class="project-top">
+          <h3>TravelMate</h3>
+        </div>
+        <p>App mobile cross-platform de gestion de voyages : planification d'activités, photos et statistiques de voyage.</p>
+        <div class="meta">React Native · Expo · TypeScript — <a href="https://github.com/oussamaa29/TravelApp" target="_blank" rel="noopener">voir le dépôt ↗</a></div>
+      </div>
 
-    function resize(){
-      W = canvas.width = canvas.offsetWidth * devicePixelRatio;
-      H = canvas.height = canvas.offsetHeight * devicePixelRatio;
-    }
-    function accentColor(){
-      return getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#e8a33d';
-    }
-    function init(){
-      resize();
-      nodes = [];
-      for (var i = 0; i < N; i++){
-        nodes.push({
-          x: Math.random() * W, y: Math.random() * H,
-          vx: (Math.random() - 0.5) * 0.15 * devicePixelRatio,
-          vy: (Math.random() - 0.5) * 0.15 * devicePixelRatio
-        });
-      }
-    }
-    function step(){
-      ctx.clearRect(0, 0, W, H);
-      var color = accentColor();
-      var linkDist = 150 * devicePixelRatio;
-      for (var i = 0; i < nodes.length; i++){
-        var a = nodes[i];
-        if (!reduced){
-          a.x += a.vx; a.y += a.vy;
-          if (a.x < 0 || a.x > W) a.vx *= -1;
-          if (a.y < 0 || a.y > H) a.vy *= -1;
-        }
-        for (var j = i + 1; j < nodes.length; j++){
-          var b = nodes[j];
-          var dx = a.x - b.x, dy = a.y - b.y;
-          var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < linkDist){
-            ctx.strokeStyle = color;
-            ctx.globalAlpha = (1 - dist / linkDist) * 0.35;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.stroke();
-          }
-        }
-      }
-      ctx.globalAlpha = 0.85;
-      ctx.fillStyle = color;
-      for (var k = 0; k < nodes.length; k++){
-        ctx.beginPath();
-        ctx.arc(nodes[k].x, nodes[k].y, 2 * devicePixelRatio, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-      if (!reduced) requestAnimationFrame(step);
-    }
-    window.addEventListener('resize', init);
-    init();
-    step();
-  })();
-</script>
+      <div class="project">
+        <div class="project-top">
+          <h3>Auditeur d'accessibilité web (RGAA)</h3>
+          <span class="status soon">à venir</span>
+        </div>
+        <p>Scan automatique d'une URL pour détecter les problèmes d'accessibilité (contraste, alternatives textuelles, navigation clavier, ARIA), notation du site et rapport exportable — pour répondre aux obligations du RGAA.</p>
+        <div class="meta">FastAPI · Playwright · Postgres · React — en cours de développement</div>
+      </div>
+
+      <div class="project">
+        <div class="project-top">
+          <h3>Devis &amp; factures pour indépendants</h3>
+          <span class="status soon">à venir</span>
+        </div>
+        <p>Facturation pour auto-entrepreneurs et artisans : devis, factures conformes, suivi des paiements et relances automatiques des impayés — pensée comme un vrai produit multi-utilisateurs.</p>
+        <div class="meta">FastAPI · React · Stripe · PDF — en cours de développement</div>
+      </div>
+
+      <p class="more-projects">Le reste de mes dépôts est <a href="https://github.com/oussamaa29?tab=repositories" target="_blank" rel="noopener">sur GitHub ↗</a>.</p>
+    </section>
+
+    <section id="skills">
+      <h2 class="h">Compétences</h2>
+
+      <p class="skill-line"><b>Backend &amp; données</b> — <span>Node.js/Express, Python, FastAPI, Flask, C#/.NET, API REST, bases relationnelles (PostgreSQL, MySQL) et NoSQL (MongoDB, DynamoDB, Neo4j).</span></p>
+      <p class="skill-line"><b>Frontend &amp; mobile</b> — <span>React, Next.js, TypeScript, React Native, Expo.</span></p>
+      <p class="skill-line"><b>Cloud &amp; DevSecOps</b> — <span>AWS (Lambda, API Gateway, Cognito, S3), Docker, Kubernetes, GitHub Actions, Trivy, Conftest/OPA.</span></p>
+      <p class="skill-line"><b>IA appliquée</b> — <span>intégration de LLM en local (Ollama), prompt engineering, sorties JSON déterministes.</span></p>
+    </section>
+
+    <footer>
+      <p>Une question, une offre, ou juste envie d'échanger — <a href="mailto:oussamachaghil214@gmail.com" style="text-decoration:underline;">écris-moi</a>.</p>
+      <p class="sign">— Oussama, écrit et codé à la main, sans framework.</p>
+    </footer>
+
+  </div>
 
 </body>
 </html>
