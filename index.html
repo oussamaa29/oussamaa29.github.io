@@ -95,6 +95,18 @@
   .about p{max-width:68ch; color:var(--ink-soft);}
   .about strong{color:var(--ink); font-weight:600;}
 
+  /* ---------------- experience ---------------- */
+  .exp-list{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .exp-item{background:var(--bg); padding:26px 28px;}
+  .exp-top{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:6px;}
+  .exp-role{font-size:1.05rem; font-weight:700;}
+  .exp-dates{font-family:var(--font-mono); font-size:.8rem; color:var(--accent); white-space:nowrap;}
+  .exp-company{color:var(--ink-soft); font-size:.92rem; margin-bottom:10px;}
+  .exp-item p{color:var(--ink-soft); max-width:66ch; margin:0;}
+
+  .project.soon{opacity:.82;}
+  .project .tag.soon{color:var(--accent); border-color:var(--accent);}
+
   /* ---------------- contact / footer ---------------- */
   footer{padding:70px 0 50px;}
   footer h2{margin-bottom:16px;}
@@ -117,7 +129,7 @@
     <div class="wrap hero-inner">
       <p class="eyebrow">Ingénierie logicielle</p>
       <h1 class="name">Chaghil Oussama</h1>
-      <p class="role">Étudiant ingénieur à ESTIAM — je conçois des systèmes complets, du backend et des données jusqu'au cloud, à la sécurité et au mobile. À l'aise pour passer d'une base de données graphe à un pipeline CI/CD sécurisé ou une app React Native.</p>
+      <p class="role">Développeur Fullstack &amp; IA, étudiant ingénieur à ESTIAM — deux stages de 6 mois à concevoir des systèmes complets, du backend et des données jusqu'au cloud, à la sécurité et au mobile. À l'aise pour passer d'une base de données graphe à un pipeline CI/CD sécurisé ou une app React Native.</p>
       <div class="hero-links">
         <a class="btn primary" href="mailto:oussamachaghil214@gmail.com">Écrire un email</a>
         <a class="btn" href="https://github.com/oussamaa29" target="_blank" rel="noopener">GitHub ↗</a>
@@ -132,9 +144,33 @@
     </div>
   </section>
 
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">01</span><h2>Expérience</h2></div>
+      <div class="exp-list">
+        <div class="exp-item">
+          <div class="exp-top">
+            <span class="exp-role">Développeur Fullstack &amp; IA — Stage</span>
+            <span class="exp-dates">Janvier – Juillet 2026</span>
+          </div>
+          <div class="exp-company">HepTa Advisory Labs</div>
+          <p>Conception et développement de bout en bout d'une plateforme de gestion d'architecture d'entreprise : modélisation en base de données graphe, API backend, interface de cartographie visuelle interactive, et intégration d'un assistant IA local pour accélérer la structuration des données métier.</p>
+        </div>
+        <div class="exp-item">
+          <div class="exp-top">
+            <span class="exp-role">Développeur Fullstack &amp; IA — Stage</span>
+            <span class="exp-dates">Janvier – Juillet 2025</span>
+          </div>
+          <div class="exp-company">HepTa Advisory Labs</div>
+          <p>Premier stage au sein du cabinet — contribution au développement d'outils internes web et premières intégrations d'IA appliquée, avant la montée en responsabilité sur la plateforme de gestion d'architecture d'entreprise l'année suivante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="skills">
     <div class="wrap">
-      <div class="section-head"><span class="section-num">01</span><h2>Compétences</h2></div>
+      <div class="section-head"><span class="section-num">02</span><h2>Compétences</h2></div>
       <div class="skillgrid">
         <div class="skillcard">
           <h3>Backend &amp; données</h3>
@@ -172,20 +208,56 @@
 
   <section class="block" id="projects">
     <div class="wrap">
-      <div class="section-head"><span class="section-num">02</span><h2>Projets</h2></div>
-      <p class="lede">Une sélection de projets académiques et personnels, du plus complet au plus ciblé.</p>
+      <div class="section-head"><span class="section-num">03</span><h2>Projets</h2></div>
+      <p class="lede">Une sélection de projets académiques, professionnels et personnels, du plus complet au plus ciblé.</p>
       <div class="projects">
 
         <article class="project">
           <div class="project-top">
             <h3>Plateforme de gestion d'architecture d'entreprise</h3>
-            <span class="tag">Projet 6 mois</span>
+            <span class="tag">Projet 6 mois — stage</span>
           </div>
           <p>Plateforme web de Business Capability Management : cartographie visuelle interactive des capacités métier, base de données graphe pour modéliser hiérarchies et relations, et assistant IA local pour accélérer la structuration des données. Développée en autonomie de bout en bout — modèle de données, API, frontend, intégration IA.</p>
           <div class="chiprow">
             <span class="chip">FastAPI</span><span class="chip">Neo4j</span><span class="chip">Vanilla JS</span><span class="chip">Ollama</span>
           </div>
           <span class="private">Dépôt privé — projet réalisé en entreprise</span>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <h3>Job Tracker IA</h3>
+            <span class="tag">Personnel</span>
+          </div>
+          <p>Suivi de candidatures en board Kanban avec matching IA : comparaison automatique entre un CV et une offre d'emploi, score d'adéquation, compétences manquantes et suggestions concrètes, via un LLM local appelé de façon déterministe.</p>
+          <div class="chiprow">
+            <span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">SQLite</span><span class="chip">Ollama</span>
+          </div>
+          <a class="plink" href="https://github.com/oussamaa29/job-tracker-ai" target="_blank" rel="noopener">Voir le dépôt ↗</a>
+        </article>
+
+        <article class="project soon">
+          <div class="project-top">
+            <h3>Auditeur d'accessibilité web (RGAA)</h3>
+            <span class="tag soon">À venir</span>
+          </div>
+          <p>Scan automatique d'une URL pour détecter les problèmes d'accessibilité (contraste, alternatives textuelles, navigation clavier, ARIA), notation du site et génération d'un rapport exportable — pour répondre aux obligations du RGAA.</p>
+          <div class="chiprow">
+            <span class="chip">FastAPI</span><span class="chip">Playwright</span><span class="chip">Postgres</span><span class="chip">React</span>
+          </div>
+          <span class="private">En cours de développement</span>
+        </article>
+
+        <article class="project soon">
+          <div class="project-top">
+            <h3>Devis &amp; factures pour indépendants</h3>
+            <span class="tag soon">À venir</span>
+          </div>
+          <p>Application de facturation pour auto-entrepreneurs et artisans : devis, factures conformes, suivi des paiements et relances automatiques des impayés — pensée comme un vrai produit multi-utilisateurs.</p>
+          <div class="chiprow">
+            <span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">Stripe</span><span class="chip">PDF</span>
+          </div>
+          <span class="private">En cours de développement</span>
         </article>
 
         <article class="project">
@@ -236,7 +308,7 @@
 
   <footer>
     <div class="wrap">
-      <div class="section-head"><span class="section-num">03</span><h2>Contact</h2></div>
+      <div class="section-head"><span class="section-num">04</span><h2>Contact</h2></div>
       <div class="contact-row">
         <a class="btn primary" href="mailto:oussamachaghil214@gmail.com">oussamachaghil214@gmail.com</a>
         <a class="btn" href="https://github.com/oussamaa29" target="_blank" rel="noopener">github.com/oussamaa29</a>
